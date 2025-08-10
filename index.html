@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Monthly Payment Tracker</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      /* Softer pastel shades */
+      --not-paid: #f8b6b6;         /* light pastel red-pink */
+      --amount-shown: #fdd9a0;     /* warm beige-peach */
+      --paid: #a8d5ba;             /* soft mint green */
+      --receiver: #e2f0fb;         /* very light sky blue */
+      --aug-highlight: #fff7cc;    /* pale yellow highlight */
+      --total-full: #dff5df;       /* light pastel green */
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 18px;
+      max-width: 1200px;
+      background: #fafafa;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 7px 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #ffffff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #f0f0f0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 13px;
+      background: #fff;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #e0e0e0;
+      padding: 6px 8px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      background: #f2f2f2;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .payBtn {
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      min-width: 84px;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .payBtn:hover {
+      transform: scale(1.03);
+    }
+
+    .not-paid {
+      background: var(--not-paid);
+      color: #663333;
+    }
+
+    .amount-shown {
+      background: var(--amount-shown);
+      color: #664400;
+    }
+
+    .paid {
+      background: var(--paid);
+      color: #225533;
+    }
+
+    .receiver-cell {
+      background: var(--receiver);
+      color: #003355;
+    }
+
+    .aug-row {
+      background: var(--aug-highlight);
+    }
+
+    .total-cell {
+      font-weight: 700;
+    }
+
+    .total-full {
+      background: var(--total-full);
+    }
+
+    .muted {
+      color: #555;
+      font-size: 13px;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      table {
+        font-size: 12px;
+      }
+      .payBtn {
+        min-width: 64px;
+        padding: 5px 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Monthly Payment Tracker (Start: Aug 2025)</h1>
+
+  <div class="controls">
+    <button id="resetBtn" class="btn">Reset All Payments</button>
+    <button id="seedBtn" class="btn">Seed Default Entries (optional)</button>
+    <div class="muted">
+      Click a red "Not Paid" → shows amount → click again to mark <strong>Paid</strong>.
+      Click Paid to unmark.
+    </div>
+  </div>
+
+  <table id="tracker">
+    <thead id="thead"></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <p class="muted">
+    Share this GitHub Pages link on WhatsApp — everyone with link can update.
+    (Add Firebase config to <code>script.js</code> first.)
+  </p>
+
+  <!-- App script (module) -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
