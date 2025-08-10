@@ -51,7 +51,7 @@ const participants = [
 const START_MONTH = 8; // 1-based month (August)
 const START_YEAR = 2025;
 const BASE_AMOUNT = 10000;
-const INCREASE = 500;
+const INCREASE = 1000;
 const MONTH_COUNT = participants.length; // number of months = number of participants
 
 // Build months array (objects with label like "Aug 25", monthIndex 0..)
